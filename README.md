@@ -23,6 +23,14 @@ proyecto-github-01/
 |       `-- teen_mental_health_processed.csv
 |-- notebooks/
 |   `-- 01_teen_mental_health_eda.ipynb
+|-- reports/
+|   `-- figures/
+|       |-- 01_target_distribution.png
+|       |-- 02_numeric_distributions.png
+|       |-- 03_correlation_matrix.png
+|       |-- 04_numeric_vs_depression_label.png
+|       |-- 05_depression_rate_by_category.png
+|       `-- 06_cramers_v_by_category.png
 |-- src/
 |   |-- cleaning.py
 |   |-- features.py
@@ -75,6 +83,16 @@ Incluye:
 - Distribuciones y correlaciones.
 - Comparacion de variables frente a `depression_label`.
 - Pruebas chi-cuadrado y Cramer's V para variables categoricas.
+
+## Visualizaciones
+
+Las principales graficas del analisis se guardan tambien como imagenes en `reports/figures/`.
+
+![Distribucion de depression_label](reports/figures/01_target_distribution.png)
+
+![Matriz de correlacion](reports/figures/03_correlation_matrix.png)
+
+![Variables numericas frente a depression_label](reports/figures/04_numeric_vs_depression_label.png)
 
 ## Principales conclusiones iniciales
 
