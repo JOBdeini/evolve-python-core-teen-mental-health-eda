@@ -124,8 +124,11 @@ Las principales graficas del analisis se guardan tambien como imagenes en `repor
 
 - El dataset contiene 1200 registros y no presenta nulos ni duplicados en la version original revisada.
 - La variable `depression_label` esta muy desbalanceada: aproximadamente un 2.6% de registros positivos.
-- Las correlaciones lineales mas destacadas con `depression_label` son positivas para horas diarias en redes sociales, estres y ansiedad, y negativa para horas de sueno.
-- En las variables categoricas analizadas, las pruebas chi-cuadrado no muestran una asociacion fuerte con `depression_label` en esta muestra.
+- El grupo con `depression_label = 1` muestra una media mayor de uso diario de redes sociales, mas estres, mas ansiedad y menos horas de sueno.
+- Las correlaciones lineales mas destacadas con `depression_label` son positivas para `risk_score`, uso intensivo de redes, horas diarias en redes sociales, estres y ansiedad, y negativa para horas de sueno.
+- Las variables categoricas originales muestran diferencias descriptivas leves: la tasa de depresion es algo mayor en mujeres y en usuarios de TikTok, pero las pruebas chi-cuadrado no muestran una asociacion fuerte para genero, plataforma o nivel de interaccion social.
+- Las variables derivadas ayudan a perfilar mejor el riesgo: todos los casos positivos se concentran en usuarios intensivos de redes sociales y en la categoria alta de `risk_score`.
+- El perfil de mayor tendencia observada combina uso intensivo de redes, peor calidad de sueno, niveles altos de estres y ansiedad, y `risk_score` alto.
 
 ## Nota
 
