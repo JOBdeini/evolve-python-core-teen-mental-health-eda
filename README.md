@@ -12,6 +12,14 @@ El objetivo es estudiar patrones asociados a la variable `depression_label`, pre
 - Rendimiento academico y actividad fisica.
 - Diferencias por variables categoricas como genero, plataforma y nivel de interaccion social.
 
+## Preguntas de investigacion
+
+Este EDA se organiza alrededor de tres preguntas principales:
+
+1. Influye el uso de redes sociales en la salud mental de los usuarios adolescentes?
+2. Que variables se repiten con mas frecuencia en los usuarios con `depression_label = 1` frente a los que no presentan esa etiqueta?
+3. Cual es el perfil de usuario con mayor tendencia observada a presentar riesgo de depresion dentro de este dataset?
+
 ## Estructura del proyecto
 
 ```text
@@ -120,15 +128,38 @@ Las principales graficas del analisis se guardan tambien como imagenes en `repor
 
 ![Variables numericas frente a depression_label](reports/figures/04_numeric_vs_depression_label.png)
 
-## Principales conclusiones iniciales
+## Respuesta a las preguntas de investigacion
 
-- El dataset contiene 1200 registros y no presenta nulos ni duplicados en la version original revisada.
-- La variable `depression_label` esta muy desbalanceada: aproximadamente un 2.6% de registros positivos.
-- El grupo con `depression_label = 1` muestra una media mayor de uso diario de redes sociales, mas estres, mas ansiedad y menos horas de sueno.
-- Las correlaciones lineales mas destacadas con `depression_label` son positivas para `risk_score`, uso intensivo de redes, horas diarias en redes sociales, estres y ansiedad, y negativa para horas de sueno.
-- Las variables categoricas originales muestran diferencias descriptivas leves: la tasa de depresion es algo mayor en mujeres y en usuarios de TikTok, pero las pruebas chi-cuadrado no muestran una asociacion fuerte para genero, plataforma o nivel de interaccion social.
-- Las variables derivadas ayudan a perfilar mejor el riesgo: todos los casos positivos se concentran en usuarios intensivos de redes sociales y en la categoria alta de `risk_score`.
-- El perfil de mayor tendencia observada combina uso intensivo de redes, peor calidad de sueno, niveles altos de estres y ansiedad, y `risk_score` alto.
+### 1. Influye el uso de redes sociales en la salud mental?
+
+El analisis muestra una asociacion entre mayor uso diario de redes sociales y `depression_label = 1`. El grupo con depresion registra una media aproximada de 6.72 horas diarias de redes sociales, frente a 4.48 horas en el grupo sin depresion. Ademas, todos los casos positivos aparecen dentro del grupo de usuarios intensivos, definido como 5 o mas horas diarias de uso.
+
+La correlacion entre `daily_social_media_hours` y `depression_label` es positiva, aunque moderada. Por tanto, el dataset sugiere una relacion relevante, pero no permite afirmar causalidad. No se puede concluir que las redes sociales causen depresion; tambien podria ocurrir que usuarios con peor salud mental pasen mas tiempo en redes sociales.
+
+### 2. Que variables se repiten en usuarios con depression_label = 1?
+
+Las variables que mas diferencian al grupo con `depression_label = 1` son:
+
+- Mayor uso diario de redes sociales.
+- Menos horas de sueno.
+- Mayor nivel de estres.
+- Mayor nivel de ansiedad.
+- Mayor `risk_score`.
+- Peor categoria de calidad de sueno.
+
+En cambio, edad, rendimiento academico, actividad fisica, screen time antes de dormir y addiction level no muestran diferencias tan claras en la comparacion directa de medias. Las variables categoricas originales muestran diferencias descriptivas leves: la tasa de depresion es algo mayor en mujeres y en usuarios de TikTok, pero las pruebas chi-cuadrado no muestran una asociacion fuerte para genero, plataforma o nivel de interaccion social.
+
+### 3. Cual es el perfil de mayor tendencia observada?
+
+Dentro de este dataset, el perfil con mayor tendencia observada a `depression_label = 1` combina varios factores:
+
+- Usuario adolescente con 5 o mas horas diarias de redes sociales.
+- Menor calidad de sueno, especialmente categoria `poor`.
+- Niveles altos de estres y ansiedad.
+- `risk_score` alto.
+- Ligera mayor presencia descriptiva en mujeres y usuarios de TikTok, aunque sin evidencia estadistica fuerte en esta muestra.
+
+La conclusion principal es que el riesgo no parece depender de una unica variable aislada, sino de la acumulacion de factores: uso intensivo de redes, peor descanso y mayor malestar emocional. El dataset contiene 1200 registros, no presenta nulos ni duplicados, y la clase positiva esta desbalanceada: aproximadamente un 2.6% de los registros tienen `depression_label = 1`.
 
 ## Nota
 
