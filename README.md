@@ -22,7 +22,8 @@ proyecto-github-01/
 |   `-- processed/
 |       `-- teen_mental_health_processed.csv
 |-- notebooks/
-|   `-- 01_teen_mental_health_eda.ipynb
+|   |-- 01_teen_mental_health_eda.ipynb
+|   `-- 01_teen_mental_health_eda_original_copy.ipynb
 |-- reports/
 |   `-- figures/
 |       |-- 01_target_distribution.png
@@ -84,6 +85,12 @@ El analisis limpio y presentable esta en:
 notebooks/01_teen_mental_health_eda.ipynb
 ```
 
+La version previa se conserva como copia de respaldo en:
+
+```text
+notebooks/01_teen_mental_health_eda_original_copy.ipynb
+```
+
 Incluye:
 
 - Carga y validacion inicial del dataset.
@@ -93,6 +100,7 @@ Incluye:
 - Distribuciones y correlaciones.
 - Comparacion de variables frente a `depression_label`.
 - Pruebas chi-cuadrado y Cramer's V para variables categoricas.
+- Interpretacion de resultados despues de las validaciones y graficas principales.
 
 ## Como queda documentado el EDA
 
