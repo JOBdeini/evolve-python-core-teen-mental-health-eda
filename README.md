@@ -66,6 +66,16 @@ El archivo resultante se guarda en:
 data/processed/teen_mental_health_processed.csv
 ```
 
+## Ruta recomendada de revision
+
+Para revisar el proyecto en GitHub, el orden recomendado es:
+
+1. Leer este `README.md` para entender el objetivo, la estructura y las conclusiones principales.
+2. Abrir `notebooks/01_teen_mental_health_eda.ipynb` para revisar el EDA completo, con codigo, tablas, graficas y conclusiones.
+3. Consultar `reports/figures/` para ver las visualizaciones principales exportadas como imagenes.
+4. Revisar `src/` para comprobar que la limpieza, el feature engineering y las utilidades estan modularizadas.
+5. Ejecutar `python main.py` para regenerar el dataset procesado desde `data/raw/`.
+
 ## Notebook principal
 
 El analisis limpio y presentable esta en:
@@ -83,6 +93,14 @@ Incluye:
 - Distribuciones y correlaciones.
 - Comparacion de variables frente a `depression_label`.
 - Pruebas chi-cuadrado y Cramer's V para variables categoricas.
+
+## Como queda documentado el EDA
+
+El EDA queda documentado en tres niveles:
+
+- `README.md`: resumen ejecutivo del proyecto, instrucciones de ejecucion y principales conclusiones.
+- `notebooks/01_teen_mental_health_eda.ipynb`: analisis paso a paso, con codigo reproducible y outputs guardados.
+- `reports/figures/`: graficas exportadas para facilitar la revision sin ejecutar el notebook.
 
 ## Visualizaciones
 
