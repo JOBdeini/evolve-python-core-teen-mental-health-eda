@@ -1,0 +1,12 @@
+feature,0,1,diff_1_minus_0,pct_diff_vs_0
+age,15.925,16.065,0.14,0.88
+daily_social_media_hours,4.479,6.719,2.241,50.03
+sleep_hours,6.494,4.761,-1.733,-26.68
+screen_time_before_sleep,1.742,1.668,-0.075,-4.28
+academic_performance,2.99,2.995,0.005,0.18
+physical_activity,1.016,0.952,-0.065,-6.35
+stress_level,5.365,8.484,3.119,58.13
+anxiety_level,5.558,8.613,3.055,54.97
+addiction_level,5.571,5.323,-0.249,-4.47
+heavy_social_media_user,0.429,1.0,0.571,133.33
+risk_score,3.956,6.296,2.339,59.13

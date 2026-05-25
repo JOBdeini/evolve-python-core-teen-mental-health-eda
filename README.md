@@ -33,13 +33,22 @@ proyecto-github-01/
 |   |-- 01_teen_mental_health_eda.ipynb
 |   `-- 01_teen_mental_health_eda_original_copy.ipynb
 |-- reports/
-|   `-- figures/
-|       |-- 01_target_distribution.png
-|       |-- 02_numeric_distributions.png
-|       |-- 03_correlation_matrix.png
-|       |-- 04_numeric_vs_depression_label.png
-|       |-- 05_depression_rate_by_category.png
-|       `-- 06_cramers_v_by_category.png
+|   |-- figures/
+|   |   |-- 01_target_distribution.png
+|   |   |-- 02_numeric_distributions.png
+|   |   |-- 03_correlation_matrix.png
+|   |   |-- 04_numeric_vs_depression_label.png
+|   |   |-- 05_depression_rate_by_category.png
+|   |   `-- 06_cramers_v_by_category.png
+|   `-- tables/
+|       |-- data_quality_summary.csv
+|       |-- validation_report.csv
+|       |-- target_distribution.csv
+|       |-- numeric_summary_by_target.csv
+|       |-- chi_square_report.csv
+|       |-- heavy_social_media_user_by_depression_label.csv
+|       |-- sleep_quality_by_depression_label.csv
+|       `-- risk_category_by_depression_label.csv
 |-- src/
 |   |-- cleaning.py
 |   |-- features.py
@@ -63,16 +72,18 @@ pip install -r requirements.txt
 
 ## Ejecucion
 
-Para generar el dataset procesado:
+Para generar el dataset procesado, las tablas de soporte y las figuras principales:
 
 ```bash
 python main.py
 ```
 
-El archivo resultante se guarda en:
+Los outputs principales se guardan en:
 
 ```text
 data/processed/teen_mental_health_processed.csv
+reports/tables/
+reports/figures/
 ```
 
 ## Ruta recomendada de revision
@@ -82,8 +93,9 @@ Para revisar el proyecto en GitHub, el orden recomendado es:
 1. Leer este `README.md` para entender el objetivo, la estructura y las conclusiones principales.
 2. Abrir `notebooks/01_teen_mental_health_eda.ipynb` para revisar el EDA completo, con codigo, tablas, graficas y conclusiones.
 3. Consultar `reports/figures/` para ver las visualizaciones principales exportadas como imagenes.
-4. Revisar `src/` para comprobar que la limpieza, el feature engineering y las utilidades estan modularizadas.
-5. Ejecutar `python main.py` para regenerar el dataset procesado desde `data/raw/`.
+4. Consultar `reports/tables/` para revisar recuentos, tasas, validaciones y contrastes estadisticos.
+5. Revisar `src/` para comprobar que la limpieza, el feature engineering, las visualizaciones y las utilidades estan modularizadas.
+6. Ejecutar `python main.py` para regenerar el dataset procesado, tablas y figuras desde `data/raw/`.
 
 ## Notebook principal
 
@@ -117,6 +129,7 @@ El EDA queda documentado en tres niveles:
 - `README.md`: resumen ejecutivo del proyecto, instrucciones de ejecucion y principales conclusiones.
 - `notebooks/01_teen_mental_health_eda.ipynb`: analisis paso a paso, con codigo reproducible y outputs guardados.
 - `reports/figures/`: graficas exportadas para facilitar la revision sin ejecutar el notebook.
+- `reports/tables/`: tablas exportadas con calidad de datos, validaciones, distribucion del target, resumen por clase, tablas cruzadas y pruebas chi-cuadrado/Cramer's V.
 
 ## Visualizaciones
 
@@ -127,6 +140,17 @@ Las principales graficas del analisis se guardan tambien como imagenes en `repor
 ![Matriz de correlacion](reports/figures/03_correlation_matrix.png)
 
 ![Variables numericas frente a depression_label](reports/figures/04_numeric_vs_depression_label.png)
+
+## Tablas exportadas
+
+El pipeline tambien exporta tablas de soporte en `reports/tables/`:
+
+- `data_quality_summary.csv`: filas, columnas, duplicados y nulos antes/despues del pipeline.
+- `validation_report.csv`: validaciones de rango y consistencia del dataset.
+- `target_distribution.csv`: distribucion absoluta y porcentual de `depression_label`.
+- `numeric_summary_by_target.csv`: medias numericas comparadas entre `depression_label = 0` y `depression_label = 1`.
+- `chi_square_report.csv`: chi-cuadrado y Cramer's V para variables categoricas.
+- Tablas cruzadas de `heavy_social_media_user`, `sleep_quality`, `risk_category`, genero, plataforma e interaccion social frente a `depression_label`.
 
 ## Respuesta a las preguntas de investigacion
 
@@ -146,6 +170,8 @@ Las variables que mas diferencian al grupo con `depression_label = 1` son:
 - Mayor nivel de ansiedad.
 - Mayor `risk_score`.
 - Peor categoria de calidad de sueno.
+
+El `risk_score` es un indice heuristico exploratorio, no una medida clinica. Combina uso diario de redes sociales, horas de sueno, estres, ansiedad y rendimiento academico para resumir senales observadas en el EDA.
 
 En cambio, edad, rendimiento academico, actividad fisica, screen time antes de dormir y addiction level no muestran diferencias tan claras en la comparacion directa de medias. Las variables categoricas originales muestran diferencias descriptivas leves: la tasa de depresion es algo mayor en mujeres y en usuarios de TikTok, pero las pruebas chi-cuadrado no muestran una asociacion fuerte para genero, plataforma o nivel de interaccion social.
 

@@ -1,0 +1,9 @@
+metric,value
+raw_rows,1200
+raw_columns,13
+processed_rows,1200
+processed_columns,17
+raw_duplicates,0
+processed_duplicates,0
+raw_missing_values,0
+processed_missing_values,0

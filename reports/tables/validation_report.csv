@@ -1,0 +1,9 @@
+check,invalid_rows,description
+depression_label_binary,0,depression_label debe contener solo 0 o 1
+daily_social_media_hours_0_24,0,daily_social_media_hours debe estar entre 0 y 24
+sleep_hours_0_24,0,sleep_hours debe estar entre 0 y 24
+screen_time_before_sleep_0_24,0,screen_time_before_sleep debe estar entre 0 y 24
+stress_level_1_10,0,stress_level debe estar entre 1 y 10
+anxiety_level_1_10,0,anxiety_level debe estar entre 1 y 10
+addiction_level_1_10,0,addiction_level debe estar entre 1 y 10
+physical_activity_non_negative,0,physical_activity no debe ser negativa

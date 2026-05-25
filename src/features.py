@@ -16,7 +16,7 @@ def create_sleep_quality(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df["sleep_quality"] = pd.cut(
         df["sleep_hours"],
-        bins=[0, 5, 7, 10],
+        bins=[0, 5, 7, float("inf")],
         labels=["poor", "normal", "good"],
         include_lowest=True,
     )
@@ -25,12 +25,18 @@ def create_sleep_quality(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def create_risk_score(df: pd.DataFrame) -> pd.DataFrame:
-    """Crea un indicador sintetico de riesgo para apoyar el analisis."""
+    """Crea un indice heuristico de riesgo exploratorio.
+
+    No es una metrica clinica. Resume senales observadas en el EDA:
+    uso de redes, sueno, estres, ansiedad y rendimiento academico.
+    """
     df = df.copy()
     df["risk_score"] = (
-        df["daily_social_media_hours"] * 0.4
-        + (10 - df["sleep_hours"]) * 0.3
-        + df["academic_performance"] * -0.3
+        df["daily_social_media_hours"] * 0.30
+        + (10 - df["sleep_hours"]) * 0.25
+        + df["stress_level"] * 0.20
+        + df["anxiety_level"] * 0.20
+        - df["academic_performance"] * 0.15
     )
 
     return df

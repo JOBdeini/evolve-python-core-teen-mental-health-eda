@@ -1,0 +1,4 @@
+risk_category,target_0_count,target_1_count,total,target_1_rate_pct
+low,401,0,401,0.0
+medium,399,0,399,0.0
+high,369,31,400,7.75
